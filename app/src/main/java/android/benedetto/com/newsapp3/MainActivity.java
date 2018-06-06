@@ -16,11 +16,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String preferenceString = preferences.getString("searchString", "");
+
         // then you use
-        prefs.getString("searchString", "NOTHING");
         TextView pref = findViewById(R.id.settings_value);
-        pref.setText(prefs.getString("searchString", "NOTHING"));
+        pref.setText(preferences.getString("search_string", "NOTHING"));
 
     }
 

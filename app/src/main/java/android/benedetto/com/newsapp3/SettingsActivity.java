@@ -31,6 +31,7 @@ public class SettingsActivity extends AppCompatActivity {
             Log.d("THECHALET", "inside onCreate inside NewsApp3PreferenceFragment");
 
             Preference searchString = findPreference(getString(R.string.settings_search_string_key));
+            Log.d("The eagles", "searchString >>>>>>>>> " + searchString);
 
             Log.d("The Eagles", "Take it easy");
             bindPreferenceSummaryToValue(searchString);
@@ -42,7 +43,11 @@ public class SettingsActivity extends AppCompatActivity {
 
             preference.setOnPreferenceChangeListener(this);
             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(preference.getContext());
+
+            Log.d("The eagles", "preference.getKey() >>>>>>>>> " + preference.getKey());
+
             String preferenceString = preferences.getString(preference.getKey(), "");
+            Log.d("The eagles", "preferenceString >>>>>>>>> " + preferenceString);
             onPreferenceChange(preference, preferenceString);
         }
 
