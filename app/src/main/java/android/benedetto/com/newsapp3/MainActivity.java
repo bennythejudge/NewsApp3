@@ -1,11 +1,14 @@
 package android.benedetto.com.newsapp3;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,6 +16,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        // then you use
+        prefs.getString("searchString", "NOTHING");
+        TextView pref = findViewById(R.id.settings_value);
+        pref.setText(prefs.getString("searchString", "NOTHING"));
 
     }
 
@@ -27,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
         Log.d("The eagles", "id: " + id);
         if (id == R.id.action_settings) {
-            Log.d("the eagles", "I am inside this fucking if");
+            Log.d("the eagles", "I am inside this if");
             Intent settingsIntent = new Intent(this, SettingsActivity.class);
             startActivity(settingsIntent);
             return true;
