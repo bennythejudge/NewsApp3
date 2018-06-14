@@ -37,7 +37,6 @@ public class SettingsActivity extends AppCompatActivity {
             Preference searchString = findPreference(getString(R.string.settings_search_string_key));
             Log.d(TAG, "searchString >>>>>>>>> " + searchString);
 
-            Log.d(TAG, "Take it easy");
             bindPreferenceSummaryToValue(searchString);
         }
 
@@ -58,34 +57,34 @@ public class SettingsActivity extends AppCompatActivity {
         @Override
         public boolean onPreferenceChange(Preference preference, Object value) {
 
-            Log.d(TAG, "inside onPreferenceChange preference: " + preference);
+//            Log.d(TAG, "inside onPreferenceChange preference: " + preference);
 
             String stringValue = value.toString();
 
-            Log.d(TAG, "point 9 inside onPreferenceChange2 stringValue: " + stringValue);
+//            Log.d(TAG, "point 9 inside onPreferenceChange2 stringValue: " + stringValue);
 
 
             if (preference instanceof ListPreference) {
-                Log.d(TAG, "inside onPreferenceChange inside if");
+//                Log.d(TAG, "inside onPreferenceChange inside if");
 
                 ListPreference listPreference = (ListPreference) preference;
                 int prefIndex = listPreference.findIndexOfValue(stringValue);
-                Log.d(TAG, "point 10 prefIndex : " + prefIndex);
+//                Log.d(TAG, "point 10 prefIndex : " + prefIndex);
                 if (prefIndex >= 0) {
                     CharSequence[] labels = listPreference.getEntries();
-                    Log.d(TAG, "inside onPreferenceChange inside if about to setSummary");
-                    Log.d(TAG, "prefIndex: " + prefIndex);
-                    Log.d(TAG, "labels: " + labels);
-                    Log.d(TAG, "labels length: " + labels.length);
+//                    Log.d(TAG, "inside onPreferenceChange inside if about to setSummary");
+//                    Log.d(TAG, "prefIndex: " + prefIndex);
+//                    Log.d(TAG, "labels: " + labels);
+//                    Log.d(TAG, "labels length: " + labels.length);
 
                     preference.setSummary(labels[prefIndex]);
                 }
             } else {
-                Log.d(TAG, "inside onPreferenceChange inside else");
+//                Log.d(TAG, "inside onPreferenceChange inside else");
 
                 preference.setSummary(stringValue);
 
-                Log.d(TAG, "inside onPreferenceChange after setSummray");
+//                Log.d(TAG, "inside onPreferenceChange after setSummray");
 
             }
             return true;
